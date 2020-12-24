@@ -2,7 +2,13 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 function ViewImageScreen(props) {
-  return <Image style={styles.image} source={require("../assets/chair.jpg")} />;
+  return (
+    <Image
+      resizeMode="contain"
+      style={styles.image}
+      source={require("../assets/chair.jpg")}
+    />
+  );
 }
 const styles = StyleSheet.create({
   image: {
