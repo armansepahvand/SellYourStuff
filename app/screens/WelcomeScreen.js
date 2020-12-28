@@ -4,6 +4,7 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 function WelcomeScreen(props) {
   return (
     <ImageBackground
+      blurRadius={10}
       source={require("../assets/background.jpg")}
       style={styles.background}
     >
