@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen(props) {
   return (
@@ -10,7 +11,7 @@ function WelcomeScreen(props) {
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text>Sell What You Dont Need </Text>
+        <Text style={styles.tagLine}>Sell What You Dont Need </Text>
       </View>
 
       <View style={styles.buttonsContainer}>
