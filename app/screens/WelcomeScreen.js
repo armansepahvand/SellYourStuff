@@ -12,8 +12,10 @@ function WelcomeScreen(props) {
         <Text>Sell What You Dont Need </Text>
       </View>
 
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <View style={styles.buttonsContainer}>
+        <AppButton title="Login"></AppButton>
+        <AppButton title="Register" color="secondary"></AppButton>
+      </View>
     </ImageBackground>
   );
 }
