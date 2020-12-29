@@ -16,3 +16,7 @@ function AppCard({ title, subTitle, image }) {
 }
 
 export default AppCard;
+
+const styles = StyleSheet.create({
+  
+});
