@@ -18,5 +18,10 @@ function AppCard({ title, subTitle, image }) {
 export default AppCard;
 
 const styles = StyleSheet.create({
-  
+  card: {
+    borderRadius: 15,
+    backgroundColor: colors.white,
+    marginBottom: 10,
+    overflow: "hidden",
+  },
 });
