@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "500",
   },
+  userContainer: {
+    marginVertical: 40,
+  },
 });
 
 export default ListingDetailsScreen;
