@@ -4,11 +4,16 @@ import { Image, View, StyleSheet } from "react-native";
 function ListingDetailsScreen(props) {
   return (
     <View>
-      <Image style source={require("../assets/jacket.jpg")} />
+      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  image: {
+    width: "100%",
+    height: 300,
+  },
+});
 
 export default ListingDetailsScreen;
