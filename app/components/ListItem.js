@@ -4,19 +4,33 @@ import AppText from "../components/AppText";
 import colors from "../config/colors";
 
 function ListItem({ image, title, subTitle }) {
-    return (
+  return (
     <View style={styles.container}>
       <Image style={styles.image} source={image}></Image>
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
-        </View>
-    );
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    
-})
+  container: {
+    flexDirection: "row",
+  },
+  image: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    marginRight: 10,
+  },
+  subTitle: {
+    color: colors.medium,
+  },
+  title: {
+    fontWeight: "500",
+  },
+});
 
 export default ListItem;
