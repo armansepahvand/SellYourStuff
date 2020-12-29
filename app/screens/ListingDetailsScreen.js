@@ -13,7 +13,7 @@ function ListingDetailsScreen(props) {
         <AppText style={styles.price}>$100</AppText>
         <View style={styles.userContainer}>
           <ListItem
-            image={require("../assets/Arman.png")}
+            image={require("../assets/arman.png")}
             title="Arman Sepah Vand"
             subTitle="5 Listings"
           />
