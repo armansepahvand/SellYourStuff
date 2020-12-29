@@ -27,4 +27,8 @@ const styles = StyleSheet.create({
   detailsContainer: {
     padding: 20,
   },
+  image: {
+    width: "100%",
+    height: 250,
+  },
 });
