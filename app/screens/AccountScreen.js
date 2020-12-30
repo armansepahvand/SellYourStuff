@@ -25,9 +25,25 @@ const menuItems = [
 
 function AccountScreen(props) {
   return (
+    <Screen style={styles.screen}>
+      <View style={styles.container}>
+        <ListItem
+          title="Arman Sepah Vand"
+          subTitle="arman.sepahvand@gmail.com"
+          image={require("../assets/arman.png")}
+        />
+      </View>
+    </Screen>
   );
 }
 
-
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 20,
+  },
+  screen: {
+    backgroundColor: colors.light,
+  },
+});
 
 export default AccountScreen;
