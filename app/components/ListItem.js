@@ -4,7 +4,14 @@ import AppText from "../components/AppText";
 import colors from "../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-function ListItem({ image, title, subTitle, onPress, renderRightActions}) {
+function ListItem({
+  image,
+  ImageComponent,
+  title,
+  subTitle,
+  onPress,
+  renderRightActions,
+}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
