@@ -17,9 +17,10 @@ function ListItem({
       <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
         <View style={styles.container}>
           {ImageComponent}
+          {image && <Image style={styles.image} source={image}></Image>}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
