@@ -26,6 +26,7 @@ function MessagesScreen(props) {
         keyExtractor={(messge) => messge.id.toString()}
         renderItem={({ item }) => (
           <ListItem
+            onPress={() => console.log("Tapped", item)}
             title={item.title}
             subTitle={item.description}
             image={item.image}
