@@ -1,3 +1,4 @@
+import React from "react";
 import { FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 const messages = [
@@ -16,9 +17,19 @@ const messages = [
 ];
 
 function MessagesScreen(props) {
-    return (
-       
-    );
+  return (
+    <FlatList
+      data={messages}
+      keyExtractor={(messge) => messge.id.toString()}
+      renderItem={({ item }) => (
+        <ListItem
+          title={item.title}
+          subTitle={item.description}
+          image={item.image}
+        />
+      )}
+    />
+  );
 }
 
 export default MessagesScreen;
