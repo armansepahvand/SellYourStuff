@@ -1,8 +1,9 @@
-import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import colors from "../config/colors";
-import AppText from "./AppText";
+import React from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import colors from '../config/colors';
+import AppText from './AppText';
 
+// AppCard componenet to create custome cards by getting the title, subtitle and image as props from parent componenet
 function AppCard({ title, subTitle, image }) {
   return (
     <View style={styles.card}>
@@ -22,18 +23,18 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: colors.white,
     marginBottom: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   detailsContainer: {
     padding: 20,
   },
   image: {
-    width: "100%",
+    width: '100%',
     height: 250,
   },
   subTitle: {
     color: colors.secondary,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   title: {
     marginBottom: 7,

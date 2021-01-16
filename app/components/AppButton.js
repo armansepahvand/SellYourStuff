@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
+
+// AppButton componenet to create custome buttons by getting the title and color as props from parent componenet
 function AppButton({ title, onPress, color = "primary" }) {
   return (
     <TouchableOpacity
