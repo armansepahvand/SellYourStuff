@@ -19,6 +19,7 @@ import PickerItem from './PickerItem';
 function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
   //state to set the modal visibility to on or off
   const [modalVisible, setModalVisible] = useState(false);
+  
 
   return (
     <>
@@ -38,7 +39,7 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
           {/* App text tag to show the lable of selected item if it has been passed as prop or show the placeholder */}
           <AppText style={styles.text}>
             {/* if an item is selected show that item otherwise shoe the placeholder */}
-            {selectedItem ? selectedItem.lable : placeholder}
+            {selectedItem ? selectedItem.label : placeholder}
           </AppText>
 
           {/* Chevron icon on the righ side of the touchable tag */}
@@ -65,7 +66,7 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
               //render the PickerItem component for each item
               <PickerItem
                 // pass  the lable of each item as prop to PickerItem
-                lable={item.lable}
+                lable={item.label}
                 // on press change modal visibility to false and pass the item to onSelectItem function in props
                 onPress={() => {
                   setModalVisible(false);
