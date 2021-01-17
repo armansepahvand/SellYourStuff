@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import colors from '../config/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -6,6 +6,18 @@ import { TouchableWithoutFeedback } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function ImageInput({ imageUri, onChangeImage }) {
+
+    useEffect(() => {
+        requestPermission();
+      }, []);
+    
+      const requestPermission = async () => {
+        const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (!granted) {
+          alert('You need to enable permission to access the library');
+        }
+      };
+
   const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
