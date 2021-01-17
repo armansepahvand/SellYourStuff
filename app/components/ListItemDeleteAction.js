@@ -1,9 +1,10 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import colors from "../config/colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import colors from '../config/colors';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
+// reusable delete component for list items
 function ListItemDeleteAction({ onPress }) {
   return (
     <View style={styles.container}>
@@ -22,8 +23,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.danger,
     width: 70,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 export default ListItemDeleteAction;

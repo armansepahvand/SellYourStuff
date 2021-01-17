@@ -1,9 +1,10 @@
-import React from "react";
-import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
-import AppText from "../components/AppText";
-import colors from "../config/colors";
-import Swipeable from "react-native-gesture-handler/Swipeable";
+import React from 'react';
+import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import AppText from '../components/AppText';
+import colors from '../config/colors';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
+//Reusable ListItem component to be rendered in lists with relative props
 function ListItem({
   image,
   IconComponent,
@@ -13,6 +14,7 @@ function ListItem({
   renderRightActions,
 }) {
   return (
+    // swipable item with a rightAction function as prop
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
         <View style={styles.container}>
@@ -30,13 +32,13 @@ function ListItem({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 15,
     backgroundColor: colors.white,
   },
   detailsContainer: {
     marginLeft: 10,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   image: {
     width: 70,
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
     color: colors.medium,
   },
   title: {
-    fontWeight: "500",
+    fontWeight: '500',
   },
 });
 

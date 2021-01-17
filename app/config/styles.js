@@ -1,11 +1,12 @@
-import { Platform } from "react-native";
-import colors from "./colors";
+import { Platform } from 'react-native';
+import colors from './colors';
 
+//Reusable Default style Object to be used in all components and screens
 export default {
   colors,
   text: {
     color: colors,
     fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
   },
 };

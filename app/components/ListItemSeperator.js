@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet,View} from "react-native";
 import colors from "../config/colors";
 
+// Reusable list item seperator 
 function ListItemSeperator() {
   return <View style={styles.seperator} />;
 }
