@@ -1,23 +1,24 @@
-import React from "react";
-import ListItem from "../components/ListItem";
-import Screen from "../components/Screen";
-import { StyleSheet, View, FlatList } from "react-native";
-import colors from "../config/colors";
-import Icon from "../components/Icon";
-import ListItemSeperator from "../components/ListItemSeperator";
+import React from 'react';
+import ListItem from '../components/ListItem';
+import Screen from '../components/Screen';
+import { StyleSheet, View, FlatList } from 'react-native';
+import colors from '../config/colors';
+import Icon from '../components/Icon';
+import ListItemSeperator from '../components/ListItemSeperator';
 
+//Temporary menuItems array to be replaced by data fetched from server
 const menuItems = [
   {
-    title: "My Listings",
+    title: 'My Listings',
     icon: {
-      name: "format-list-bulleted",
+      name: 'format-list-bulleted',
       backgroundColor: colors.primary,
     },
   },
   {
-    title: "My Messages",
+    title: 'My Messages',
     icon: {
-      name: "email",
+      name: 'email',
       backgroundColor: colors.secondary,
     },
   },
@@ -30,7 +31,7 @@ function AccountScreen(props) {
         <ListItem
           title="Arman Sepah Vand"
           subTitle="arman.sepahvand@gmail.com"
-          image={require("../assets/arman.png")}
+          image={require('../assets/arman.png')}
         />
         <View style={styles.container}>
           <FlatList
@@ -51,9 +52,9 @@ function AccountScreen(props) {
           />
         </View>
         <ListItem
-        title="Log Out"
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-      />
+          title="Log Out"
+          IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        />
       </View>
     </Screen>
   );
