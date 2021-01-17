@@ -18,9 +18,18 @@ export default function ImageInput({ imageUri, onChangeImage }) {
     }
   };
 
-    const handlPress= ()=>{
-        
-    }
+  const handlePress = () => {
+    if (!imageUri) selectImage();
+    else
+      Alert.alert('Delete', 'Are you sure you wnat to delete this image', [
+        {
+          text: 'yes',
+          onPress: () => onChangeImage(null),
+        },
+        { text: 'No' },
+      ]);
+  };
+
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
