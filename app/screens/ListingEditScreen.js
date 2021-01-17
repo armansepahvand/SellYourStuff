@@ -9,6 +9,7 @@ import {
   SubmitButton,
 } from '../components/forms';
 import Screen from '../components/Screen';
+import styles from '../config/styles';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -24,7 +25,25 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
-  return <div></div>;
+  return (
+    <Screen style={styles.container}>
+      <AppForm
+        initialValues={{
+          title: '',
+          price: '',
+          description: '',
+          category: null,
+        }}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      ></AppForm>
+    </Screen>
+  );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+  },
+});
 export default ListingEditScreen;
