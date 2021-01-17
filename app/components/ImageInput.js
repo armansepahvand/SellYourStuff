@@ -1,10 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import colors from '../config/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
-export default function ImageInput({ imageUri }) {
+export default function ImageInput({ imageUri, onChangeImage }) {
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5,
+      });
+      if (!result.cancelled) onChangeImage(result.uri);
+    } catch (error) {
+      console.log('Error reading an image', error);
+    }
+  };
 
     const handlPress= ()=>{
         
