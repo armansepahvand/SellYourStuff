@@ -1,8 +1,8 @@
-import { ErrorMessage } from 'formik';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
 import ImageInputList from '../ImageInputList';
-import useFormikContext from 'formik';
+import {useFormikContext} from 'formik';
+import ErrorMessage from './ErrorMessage';
 
 export default function FormImagePicker({ name }) {
   const { setFieldValue, errors, touched, values } = useFormikContext();
@@ -31,5 +31,3 @@ export default function FormImagePicker({ name }) {
     </>
   );
 }
-
-const styles = StyleSheet.create({});
