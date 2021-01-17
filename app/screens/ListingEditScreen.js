@@ -36,7 +36,15 @@ function ListingEditScreen(props) {
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
-      ></AppForm>
+      >
+        <AppFormField maxLength={255} name="title" placeholder="Title" />
+        <AppFormField
+          keyboardType="numeric"
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+        />
+      </AppForm>
     </Screen>
   );
 }
