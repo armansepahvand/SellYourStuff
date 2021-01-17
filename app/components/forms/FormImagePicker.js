@@ -9,7 +9,16 @@ export default function FormImagePicker({ name }) {
 
   const imageUris = values[name];
 
-export default function FormImagePicker() {
+  const handleAdd = (uri) => {
+    setFieldValue(name, [...imageUris, uri]);
+  };
+
+  const handleRemove = (uri) => {
+    setFieldValue(
+      name,
+      imageUris.filter((imageUri) => imageUri !== uri)
+    );
+  };
   return (
     <>
       <ImageInputList  />
