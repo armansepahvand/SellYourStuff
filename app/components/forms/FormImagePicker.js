@@ -19,10 +19,15 @@ export default function FormImagePicker({ name }) {
       imageUris.filter((imageUri) => imageUri !== uri)
     );
   };
+
   return (
     <>
-      <ImageInputList  />
-      <ErrorMessage />
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
+      <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
   );
 }
