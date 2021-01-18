@@ -1,25 +1,26 @@
-import React from "react";
-import { FlatList, StyleSheet } from "react-native";
-import AppCard from "../components/AppCard";
-import Screen from "../components/Screen";
-import colors from "../config/colors";
+import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import AppCard from '../components/AppCard';
+import Screen from '../components/Screen';
+import colors from '../config/colors';
+import navigationTheme from '../navigation/navigationTheme';
 
 const listings = [
   {
     id: 1,
-    title: "Green jacket for sale",
+    title: 'Green jacket for sale',
     price: 100,
-    image: require("../assets/jacket.jpg"),
+    image: require('../assets/jacket.jpg'),
   },
   {
     id: 2,
-    title: "Bicycle for sale",
+    title: 'Bicycle for sale',
     price: 200,
-    image: require("../assets/bicycle.jpg"),
+    image: require('../assets/bicycle.jpg'),
   },
 ];
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -28,8 +29,9 @@ function ListingsScreen(props) {
         renderItem={({ item }) => (
           <AppCard
             title={item.title}
-            subTitle={"$" + item.price}
+            subTitle={'$' + item.price}
             image={item.image}
+            onPress={() => navigation.navigate('ListingDetails', item)}
           />
         )}
       />
