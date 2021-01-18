@@ -6,6 +6,7 @@ import colors from '../config/colors';
 import Icon from '../components/Icon';
 import ListItemSeperator from '../components/ListItemSeperator';
 
+
 //Temporary menuItems array to be replaced by data fetched from server
 const menuItems = [
   {
@@ -21,10 +22,11 @@ const menuItems = [
       name: 'email',
       backgroundColor: colors.secondary,
     },
+    targetScreen: 'Messages',
   },
 ];
 
-function AccountScreen(props) {
+function AccountScreen({navigation}) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -47,6 +49,7 @@ function AccountScreen(props) {
                     backgroundColor={item.icon.backgroundColor}
                   />
                 }
+                onPress={() => navigation.navigate(item.targetScreen)}
               />
             )}
           />
