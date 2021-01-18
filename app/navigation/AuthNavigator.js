@@ -7,6 +7,8 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 
 const Stack = createStackNavigator();
 
+//Authorization Navigation component for the app including three screens for ..
+// WelcomeScreen, LoginScreen and RegisterScreen
 const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown:false}} />

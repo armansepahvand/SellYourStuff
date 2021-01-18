@@ -1,8 +1,9 @@
-// Whwlcome Screen to show the logo, background image and login and register
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+
 import AppButton from '../components/AppButton';
 
+// Whwlcome Screen to show the logo, background image and login and register
 function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground

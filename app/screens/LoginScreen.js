@@ -1,17 +1,17 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
-import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
 import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 
-
+//Yup validation schema for input validation
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
 });
 
+//Login Screen containing a form to login to the app
 function LoginScreen(props) {
   return (
     <Screen style={styles.container}>

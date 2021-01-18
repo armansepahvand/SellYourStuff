@@ -1,29 +1,36 @@
-import React, {useEffect} from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
-import colors from '../config/colors';
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Image, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
+import colors from '../config/colors';
+
+//reusable image input component which recieve the image uri and image change function as props
 export default function ImageInput({ imageUri, onChangeImage }) {
+  //check for permission to access media library or camera once for each render
+  useEffect(() => {
+    requestPermission();
+  }, []);
 
-    useEffect(() => {
-        requestPermission();
-      }, []);
-    
-      const requestPermission = async () => {
-        const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (!granted) {
-          alert('You need to enable permission to access the library');
-        }
-      };
+  //function to ask for permission to access media library
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) {
+      alert('You need to enable permission to access the library');
+    }
+  };
 
+  //function to get an image from media library
   const selectImage = async () => {
     try {
+      //get the selected image and pass it to the result constant
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.5,
       });
+      //If selection is not cancelled pass the uri of the selected image to the
+      //onChangeImage prop function which will add the uri to the list of images in the parent component
       if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {
       console.log('Error reading an image', error);
@@ -45,6 +52,7 @@ export default function ImageInput({ imageUri, onChangeImage }) {
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
+        {/* If there is no image uri show the camera icon */}
         {!imageUri && (
           <MaterialCommunityIcons
             color={colors.medium}
@@ -52,6 +60,7 @@ export default function ImageInput({ imageUri, onChangeImage }) {
             size={40}
           />
         )}
+        {/* If there is an image uri show the image */}
         {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
     </TouchableWithoutFeedback>

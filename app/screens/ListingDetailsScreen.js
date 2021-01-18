@@ -1,11 +1,15 @@
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
+
 import AppText from '../components/AppText';
 import colors from '../config/colors';
 import ListItem from '../components/ListItem';
 
+// A screen to show the detail for each listing wich gets the navigation route as prop
 function ListingDetailsScreen({ route }) {
+  //get the listing object from route params
   const listing = route.params;
+
   return (
     <View>
       <Image style={styles.image} source={listing.image} />

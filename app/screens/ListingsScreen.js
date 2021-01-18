@@ -1,10 +1,11 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
+
 import AppCard from '../components/AppCard';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
-import navigationTheme from '../navigation/navigationTheme';
 
+//temporary array to simulate data coming from server
 const listings = [
   {
     id: 1,
@@ -20,9 +21,11 @@ const listings = [
   },
 ];
 
+//Listing Screen to show a list of existing listings
 function ListingsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
+      {/* flatlist component to create a list of listings  */}
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}

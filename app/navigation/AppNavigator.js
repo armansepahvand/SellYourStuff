@@ -8,6 +8,8 @@ import AccountNavigator from './AccountNavigator';
 
 const Tab = createBottomTabNavigator();
 
+//Main Navigation component for the app including three tabs for ..
+// FeedNavigator, ListingEditScreen and AccountNavigator
 const AppNavigator = () => (
   <Tab.Navigator>
     <Tab.Screen

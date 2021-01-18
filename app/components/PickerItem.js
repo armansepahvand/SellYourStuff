@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+
 import AppText from './AppText';
 
 //Reusable PickerItem to be rendered in AppPicker with lable and onPress function as props

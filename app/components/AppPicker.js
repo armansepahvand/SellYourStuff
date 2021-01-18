@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  TextInput,
   View,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -9,8 +8,8 @@ import {
   FlatList,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import colors from '../config/colors';
-import defaultStyles from '../config/styles';
 import AppText from './AppText';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
@@ -19,7 +18,6 @@ import PickerItem from './PickerItem';
 function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
   //state to set the modal visibility to on or off
   const [modalVisible, setModalVisible] = useState(false);
-  
 
   return (
     <>

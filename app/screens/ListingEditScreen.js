@@ -12,6 +12,7 @@ import FormImagePicker from '../components/forms/FormImagePicker';
 import Screen from '../components/Screen';
 import useLocation from '../hooks/useLocation';
 
+//Yup validation schema
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().min(1).max(10000).label('Price'),
@@ -20,12 +21,14 @@ const validationSchema = Yup.object().shape({
   images: Yup.array().min(1, 'Please select at least one image'),
 });
 
+//temporary categories array to be used as data source
 const categories = [
   { label: 'Furniture', value: 1 },
   { label: 'Clothing', value: 2 },
   { label: 'Bicycle', value: 3 },
 ];
 
+//Listing screen containing a Form to add new listings or update or delete existing listings
 function ListingEditScreen(props) {
   const location = useLocation();
 
