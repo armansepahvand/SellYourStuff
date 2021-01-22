@@ -34,7 +34,7 @@ function ListingsScreen({ navigation }) {
     <Screen style={styles.screen}>
       {error && (
         <>
-          <AppText>Couldnt retrieve the dtat</AppText>
+          <AppText>Couldnt retrieve the data</AppText>
           <AppButton title="Retry" onPress={loadListings()}></AppButton>
         </>
       )}
