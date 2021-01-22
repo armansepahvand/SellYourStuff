@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 
 import listingsApi from '../api/listings';
 import AppButton from '../components/AppButton';
@@ -26,17 +26,17 @@ function ListingsScreen({ navigation }) {
 
   //function to get the listings from server and set the listings state to the result of the server request
   const loadListings = async () => {
+
     //set loding status to true before sending the get request
     setLoading(true);
-
     //sending the http request to server to get the data
     const response = await listingsApi.getlistings();
-
     //set loading to false after getting the data
     setLoading(false);
 
     //if response status is not ok set error state to true
     if (!response.ok) return setError(true);
+
     //if there is no error set error state to false and put the response datat into listings state
     setError(false);
     setListings(response.data);
@@ -52,7 +52,7 @@ function ListingsScreen({ navigation }) {
           <AppButton title="Retry" onPress={loadListings()}></AppButton>
         </>
       )}
-
+      <ActivityIndicator animating={true} size="large"></ActivityIndicator>
       {/* flatlist component to create a list of listings  */}
       <FlatList
         data={listings}
