@@ -17,7 +17,7 @@ function ListingsScreen({ navigation }) {
   const [error, setError] = useState(false);
 
   //state to set the loding status
-  const [loding, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   //call the loadListings function at the first loading
   useEffect(() => {
@@ -30,6 +30,7 @@ function ListingsScreen({ navigation }) {
     //set loding status to true before sending the get request
     setLoading(true);
     //sending the http request to server to get the data
+    setTimeout(()=>{}, 5000)
     const response = await listingsApi.getlistings();
     //set loading to false after getting the data
     setLoading(false);
@@ -52,7 +53,7 @@ function ListingsScreen({ navigation }) {
           <AppButton title="Retry" onPress={loadListings()}></AppButton>
         </>
       )}
-      <ActivityIndicator animating={true} size="large"></ActivityIndicator>
+      <ActivityIndicator animating={loading} size="large" color="#0000ff"/>
       {/* flatlist component to create a list of listings  */}
       <FlatList
         data={listings}
