@@ -16,6 +16,9 @@ function ListingsScreen({ navigation }) {
   //State to check for any server error
   const [error, setError] = useState(false);
 
+  //state to set the loding status
+  const [loding, setLoading] = useState(false);
+
   //call the loadListings function at the first loading
   useEffect(() => {
     loadListings();
@@ -23,7 +26,14 @@ function ListingsScreen({ navigation }) {
 
   //function to get the listings from server and set the listings state to the result of the server request
   const loadListings = async () => {
+    //set loding status to true before sending the get request
+    setLoading(true);
+
+    //sending the http request to server to get the data
     const response = await listingsApi.getlistings();
+
+    //set loading to false after getting the data
+    setLoading(false);
 
     //if response status is not ok set error state to true
     if (!response.ok) return setError(true);
