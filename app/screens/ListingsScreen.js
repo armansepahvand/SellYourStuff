@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import listingsApi from '../api/listings';
+import AppButton from '../components/AppButton';
 import AppCard from '../components/AppCard';
+import AppText from '../components/AppText';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 
@@ -11,19 +13,32 @@ function ListingsScreen({ navigation }) {
   //listings srtate, default set to empty array
   const [listings, setListings] = useState([]);
 
-  //function to get the listings from server and set the listings state to the result of the server request
-  const loadListings = async () => {
-    const response = await listingsApi.getlistings();
-    setListings(response.data);
-  };
+  const [error, setError] = useState(false);
 
   //call the loadListings function at the first loading
   useEffect(() => {
     loadListings();
   }, []);
 
+  //function to get the listings from server and set the listings state to the result of the server request
+  const loadListings = async () => {
+    const response = await listingsApi.getlistings();
+
+    if (!response.ok) return setError(true);
+    setError(false);
+    setListings(response.data);
+  };
+
+  console.log('the listing is ', error);
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldnt retrieve the dtat</AppText>
+          <AppButton title="Retry" onPress={loadListings()}></AppButton>
+        </>
+      )}
+
       {/* flatlist component to create a list of listings  */}
       <FlatList
         data={listings}
