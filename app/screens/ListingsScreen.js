@@ -13,6 +13,7 @@ function ListingsScreen({ navigation }) {
   //listings srtate, default set to empty array
   const [listings, setListings] = useState([]);
 
+  //State to check for any server error
   const [error, setError] = useState(false);
 
   //call the loadListings function at the first loading
@@ -24,7 +25,9 @@ function ListingsScreen({ navigation }) {
   const loadListings = async () => {
     const response = await listingsApi.getlistings();
 
+    //if response status is not ok set error state to true
     if (!response.ok) return setError(true);
+    //if there is no error set error state to false and put the response datat into listings state
     setError(false);
     setListings(response.data);
   };
@@ -32,6 +35,7 @@ function ListingsScreen({ navigation }) {
   console.log('the listing is ', error);
   return (
     <Screen style={styles.screen}>
+      {/* if ther is a server error dispaly it and set a button to retry accessing the data */}
       {error && (
         <>
           <AppText>Couldnt retrieve the data</AppText>
