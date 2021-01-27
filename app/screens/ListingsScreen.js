@@ -7,17 +7,19 @@ import AppCard from '../components/AppCard';
 import AppText from '../components/AppText';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
+import useApi from '../hooks/useApi';
 
 //Listing Screen to show a list of existing listings
 function ListingsScreen({ navigation }) {
- 
+  //used the useApi custom hook to get the listings data from server
+  const { data: listings, error, loading, request: loadListings } = useApi(
+    listingsApi.getlistings
+  );
 
   //call the loadListings function at the first loading
   useEffect(() => {
     loadListings();
   }, []);
-
-  
 
   console.log('the listing is ', error);
   return (
@@ -29,7 +31,7 @@ function ListingsScreen({ navigation }) {
           <AppButton title="Retry" onPress={loadListings()}></AppButton>
         </>
       )}
-      <ActivityIndicator animating={loading} size="large" color="#0000ff"/>
+      <ActivityIndicator animating={loading} size="large" color="#0000ff" />
       {/* flatlist component to create a list of listings  */}
       <FlatList
         data={listings}
