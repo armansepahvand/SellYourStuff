@@ -25,7 +25,7 @@ export default useApi = (apiFunction) => {
 
     //if there is no error set error state to false and put the response datat into listings state
     setError(false);
-    setListings(response.data);
+    setData(response.data);
   };
   return { data, error, loading, request };
 };
