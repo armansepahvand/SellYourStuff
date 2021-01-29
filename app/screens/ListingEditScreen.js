@@ -40,7 +40,7 @@ function ListingEditScreen(props) {
   const [progress, setProgress] = useState(0);
 
   //Method to handle submitting new listings to the server side
-  const handleSubmit = async (listing) => {
+  const handleSubmit = async (listing, { resetForm }) => {
     //reset progress value to zero
     setProgress(0);
     //show uploadScreen modal
@@ -54,6 +54,9 @@ function ListingEditScreen(props) {
 
     if (!result.ok) return alert('Could not save the listing.');
     alert('Success');
+
+    //reset form fields after submiting the form
+    resetForm();
   };
 
   return (
