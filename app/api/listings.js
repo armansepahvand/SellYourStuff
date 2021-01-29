@@ -7,7 +7,7 @@ const endpoint = '/listings';
 const getlistings = () => client.get(endpoint);
 
 //function to post a listing to the server
-const addListing = (listing) => {
+const addListing = (listing, onUploadProgress) => {
   //create a new formData object to store the listing object in the form type
   const data = new FormData();
 
@@ -28,7 +28,11 @@ const addListing = (listing) => {
   if (listing.location)
     data.append('location', JSON.stringify(listing.location));
 
-  return client.post(endpoint, data);
+  //post the data to the endpoint and get the progress ratio
+  return client.post(endpoint, data, {
+    onUploadProgress: (progress) =>
+      onUploadProgress(progress.loaded / progress.total),
+  });
 };
 
 export default {
