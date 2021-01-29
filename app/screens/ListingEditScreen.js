@@ -41,6 +41,8 @@ function ListingEditScreen(props) {
 
   //Method to handle submitting new listings to the server side
   const handleSubmit = async (listing) => {
+    //reset progress value to zero
+    setProgress(0);
     //show uploadScreen modal
     setUploadVisible(true);
     const result = await listingsApi.addListing(
